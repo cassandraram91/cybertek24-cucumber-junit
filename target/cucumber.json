@@ -1,0 +1,151 @@
+[
+  {
+    "line": 2,
+    "elements": [
+      {
+        "start_timestamp": "2022-01-27T20:33:27.490Z",
+        "before": [
+          {
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.cybertek.step_definitions.Hooks.setUpScenario()"
+            }
+          }
+        ],
+        "line": 4,
+        "name": "Add new spartan on UI and Compare with Confirmation page",
+        "description": "",
+        "id": "add-new-spartan;add-new-spartan-on-ui-and-compare-with-confirmation-page",
+        "after": [
+          {
+            "result": {
+              "duration": 2000000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.cybertek.step_definitions.Hooks.tearDownScenario(io.cucumber.java.Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 3320000000,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "User is on spartan home page",
+            "match": {
+              "location": "com.cybertek.step_definitions.SpartanStepDefs.user_is_on_spartan_home_page()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 372000000,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "User goes to Web Data page",
+            "match": {
+              "location": "com.cybertek.step_definitions.SpartanStepDefs.user_goes_to_web_data_page()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 115000000,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "clicks on add spartan",
+            "match": {
+              "location": "com.cybertek.step_definitions.SpartanStepDefs.clicks_on_add_spartan()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 268000000,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "enters following data and submits:",
+            "match": {
+              "location": "com.cybertek.step_definitions.SpartanStepDefs.enters_following_data(java.util.Map\u003cjava.lang.String, java.lang.String\u003e)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "name",
+                  "Test Test"
+                ]
+              },
+              {
+                "cells": [
+                  "gender",
+                  "Male"
+                ]
+              },
+              {
+                "cells": [
+                  "phone",
+                  "12341231234"
+                ]
+              }
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 27000000,
+              "status": "passed"
+            },
+            "line": 12,
+            "name": "success message should be displayed",
+            "match": {
+              "location": "com.cybertek.step_definitions.SpartanStepDefs.success_message_should_be_displayed()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 13,
+            "name": "data on confirmation page must be same",
+            "match": {
+              "location": "com.cybertek.step_definitions.SpartanStepDefs.data_on_confirmation_page_must_be_same()"
+            },
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@spartan"
+          }
+        ]
+      }
+    ],
+    "name": "Add new spartan",
+    "description": "",
+    "id": "add-new-spartan",
+    "keyword": "Feature",
+    "uri": "file:src/test/resources/features/add_spartan.feature",
+    "tags": [
+      {
+        "name": "@spartan",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 1
+        }
+      }
+    ]
+  }
+]

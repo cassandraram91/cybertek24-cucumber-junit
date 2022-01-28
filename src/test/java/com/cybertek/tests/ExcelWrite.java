@@ -1,0 +1,49 @@
+package com.cybertek.tests;
+
+import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.junit.Test;
+
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+public class ExcelWrite {
+
+    String filePath = "Employees.xlsx";
+
+    @Test
+    public void writeToExcelSheet() throws IOException {
+
+        //open the Employees.xlsx using Apache POI
+        //open the file to read, using InputStream
+        FileInputStream in = new FileInputStream(filePath);
+        XSSFWorkbook workbook = new XSSFWorkbook(in);
+
+        //Goto "data" sheet or go to first sheet by index
+        XSSFSheet dataSheet = workbook.getSheetAt(0);
+
+        //add a column name "salary" and save into file
+        XSSFCell salaryColCell = dataSheet.getRow(0).createCell(3);
+        salaryColCell.setCellValue("Salary");
+
+        XSSFCell salaryOne = dataSheet.getRow(1).createCell(3);
+        salaryOne.setCellValue(111000);
+
+        XSSFCell salaryTwo = dataSheet.getRow(2).createCell(3);
+        salaryTwo.setCellValue(125000);
+
+        //save the changes
+        //open to write to the file: FileInputStream -> reading
+        //                           FileOutputStream -> writing
+        FileOutputStream outputStream = new FileOutputStream(filePath);
+        //save/write changes to the workbook
+        workbook.write(outputStream);
+        //close all
+        outputStream.close();
+        workbook.close();
+        in.close();
+
+    }
+}

@@ -1,0 +1,61 @@
+package com.cybertek.step_definitions;
+
+import com.cybertek.pages.AddSpartanPage;
+import com.cybertek.pages.SpartanConfirmationPage;
+import com.cybertek.pages.SpartanHomePage;
+import com.cybertek.pages.SpartansDataTablePage;
+import com.cybertek.utils.ConfigurationReader;
+import com.cybertek.utils.Driver;
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import org.junit.Assert;
+
+import java.util.Map;
+
+public class SpartanStepDefs {
+
+    Map<String,String> spartanMap;
+
+    @Given("User is on spartan home page")
+    public void user_is_on_spartan_home_page() {
+        Driver.getDriver().get(ConfigurationReader.getProperty("spartan.url"));
+    }
+
+    @When("User goes to Web Data page")
+    public void user_goes_to_web_data_page() {
+        SpartanHomePage homePage = new SpartanHomePage();
+        homePage.webDataLink.click();
+    }
+
+    @And("clicks on add spartan")
+    public void clicks_on_add_spartan() {
+        SpartansDataTablePage dataTablePage = new SpartansDataTablePage();
+        dataTablePage.addSpartanBtn.click();
+    }
+
+    @And("enters following data and submits:")
+    public void enters_following_data( Map<String, String> spartanInfo) {  //data is assigned from feature file to our map
+        //spartanMap.putAll(spartanInfo);
+        AddSpartanPage addSpartanPage = new AddSpartanPage();
+        addSpartanPage.nameField.sendKeys(spartanInfo.get("name"));
+        addSpartanPage.selectGender(spartanInfo.get("gender"));
+        addSpartanPage.phone.sendKeys(spartanInfo.get("phone"));
+        addSpartanPage.submitBtn.click();
+    }
+
+    @Then("success message should be displayed")
+    public void success_message_should_be_displayed() {
+        SpartanConfirmationPage confirmationPage = new SpartanConfirmationPage();
+        Assert.assertEquals("Successfully Added new Data!", confirmationPage.alertMsg.getText() );
+    }
+
+    @And("data on confirmation page must be same")
+    public void data_on_confirmation_page_must_be_same() {
+
+    }
+
+
+
+}

@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: Data driven testing using Scenario outline with Examples table
+-------------------------------------------------------------------------------
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 42.275 s - in Data driven testing using Scenario outline with Examples table
